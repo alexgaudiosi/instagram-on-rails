@@ -1,0 +1,7 @@
+<% if @posts.any? %>
+	<% @posts.each do |post| %>
+		<%= post.description %>
+	<% end %>
+<% else %>
+	No posts yet
+<% end %>
