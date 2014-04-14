@@ -1,6 +1,9 @@
 <% if @posts.any? %>
 	<% @posts.each do |post| %>
-		<%= post.description %>
+		  <div class="row">
+		  	<div class="col-md-1"><%= image_tag post.picture.url(:medium), class: 'uploaded-pic, img-rounded'%><%= post.description %>
+		  	</div>
+		  </div>
 	<% end %>
 <% else %>
 	No posts yet

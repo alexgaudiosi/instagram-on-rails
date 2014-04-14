@@ -2,12 +2,24 @@
 <html>
 <head>
   <title>InstagramClone</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+          <header>
+            <!-- left -->
+            <div id="left">
+              
+              <div id="slides">
+                <div class="slides_container">
+                  <img src='http://www.thefoxisblack.com/blogimages//new-instagram-logo-mackey-saturday.jpg' class="screenshot" alt="Logo"/> 
+                </div>
+              </div>            
+            </div>
+        </header>
 <%= yield %>
 
 </body>
