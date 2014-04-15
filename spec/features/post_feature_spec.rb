@@ -28,14 +28,34 @@ describe 'posts index page' do
 				expect(page).to have_content 'error'
 			end
 		end
+
+		describe 'with tags' do
+			it 'adds the tag with the post' do
+				visit '/posts/new'
+				fill_in 'Description', with: 'My holiday pic'
+				fill_in 'Tags', with: '#yolo, #swag'
+				click_button 'Create Post'
+
+				expect(page).to have_content '#yolo, #swag'
+			end
+		end
 	end
 
-	context 'with post' do
+	context 'with posts' do
 		before { Post.create(description: 'Some awesome snap') }
 
 		it 'displays the post' do
 			visit '/posts'
 			expect(page).to have_content 'Some awesome snap'
+		end
+
+		describe 'deleting a post' do
+			it 'removes the post' do
+				visit '/posts'
+				click_link 'Delete'
+
+				expect(page).not_to have_content 'Some awesome snap'
+			end
 		end
 	end
 end
