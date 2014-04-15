@@ -18,15 +18,33 @@
  }
 
 header {
-	background-color: #1c5380
+	background-color: #3E6E96;
 }
 
 header img {
-	width: 200px;
+		width: 200px;
+	}
+
+.slides_container {
+	width: 300px;
 }
 
-.col-md-1 {
+.col-md-4 {
 	margin-top: 10px;
-	margin-left: auto;
-	margin-right: auto;
+	margin-left: 10px;
+	width: 300px;
+	float: left;
+	background-color: white;
+	border: 5px solid #1c5380;
+	border-radius: 10px;
+}
+
+.col-md-4 img {
+	margin-top: 10px;
+}
+
+.center {
+     float: none;
+     margin-left: auto;
+     margin-right: auto;
 }
