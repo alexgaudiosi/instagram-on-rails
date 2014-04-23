@@ -10,7 +10,17 @@ class Post < ActiveRecord::Base
    	validates :description, presence: true
    	validates_attachment_content_type :picture, content_type: ["image/jpg", "image/jpeg", "image/png"]
 
-   	has_and_belongs_to_many :tags
+   	has_many :votes
+    has_and_belongs_to_many :tags
+    has_many :comments
+    belongs_to :user
+
+    # geocoded_by :address
+    # after_validation :geocode
+    # after_save
+    # before_save
+    # after_create
+    # after_update
 
 	def tag_names
 		tags.map(&:name).join
@@ -22,4 +32,8 @@ class Post < ActiveRecord::Base
 			tags << tag
 		end
 	end
+
+  def vote_count
+    votes.up.count - votes.down.count
+  end
 end

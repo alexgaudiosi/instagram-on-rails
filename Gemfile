@@ -15,6 +15,8 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 
+gem 'jquery-ui-rails'
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -31,7 +33,11 @@ gem 'devise'
 
 gem 'bootstrap-sass'
 
+gem 'geocoder'
+
 gem 'aws-sdk'
+
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
@@ -43,6 +49,8 @@ gem "paperclip", "~> 3"
 group :development, :test do
   gem 'capybara'
   gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'poltergeist'
 end
 
 # Use ActiveModel has_secure_password

@@ -1,14 +1,25 @@
-  <div class="row">
-	  	<div class="col-md-4">
-	  		<%= image_tag post.picture.url(:medium), class: 'uploaded-pic, img-rounded'%>
-	  		<p><%= post.description %>
-	  			<%= post.tags.each do |tag| %>
-	  				<%= link_to tag.name, tag %>
-	  			<% end %>
-	  		</p>
-	  		<p><%= link_to 'Delete', post_path(post), method: :delete, class: 'btn btn-danger' %>
-	  			<%= link_to 'Add a comment', new_post_comment_path(post), class: 'btn btn-primary' %>
-	  			<%= link_to 'Buy', new_post_charge_path(post), class: 'btn btn-success' %>
-	  		</p>
-	  	</div>
-  </div>
+  <div class='row'>
+  <% if @posts.any? %>
+    <% @posts.each do |post| %>
+      <div class="col-md-4">
+        <div class="thumbnail">
+          <%= image_tag post.picture.url(:medium), class: 'img-rounded' %>
+          <div class="caption">
+            <h3><%= post.description %></h3>
+            <p>
+              <% post.tags.each do |tag| %>
+                <%= link_to tag.name, tag %>
+              <% end %>
+            </p>
+            <%= post.comments.count %> comments
+              <p><%= button_to 'Upvote', post_votes_path(post, direction: :up) %> <%= button_to 'Downvote', post_votes_path(post, direction: :down) %></p><h3 class='votes_count'><%= post.vote_count %></h3><p><%= link_to 'Delete', post_path(post), method: :delete, class: 'btn btn-danger' %>
+               <%= link_to 'Add a comment', new_post_comment_path(post), class: 'btn btn-primary' %>
+               </p>
+           </div>
+         </div>
+       </div>
+     <% end %>
+   <% else %>
+     No posts yet
+ <% end %>
+ </div>

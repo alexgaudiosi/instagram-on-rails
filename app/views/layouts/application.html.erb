@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>InstagramClone</title>
-  <link href="css/bootstrap.min.css" rel="stylesheet">
+<!--   <link href="css/bootstrap.min.css" rel="stylesheet"> -->
 
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
@@ -10,14 +10,15 @@
 </head>
 <body>
   <header>
-     <div id="left">    
+     <div id="left"> 
 	   	<div id="slides">
-	      <div class="slides_container center">
-	        <img src='http://www.thefoxisblack.com/blogimages//new-instagram-logo-mackey-saturday.jpg' class="screenshot" alt="Logo"/> 
-	      </div>
-	    </div>            
+	   	  <p><%= link_to 'Home', '/posts', class: 'btn btn-primary' %>
+     		<%= link_to 'New Post', '/posts/new', class: 'btn btn-primary' %></p>  
+     			    </div> 
+	      	<div class="slides_container center">
+	      		<p>Instagran<img src="http://www.yoda.arachsys.com/worms/wa/anims/extramaps/oldwoman.gif" class="heading"></p>
+	      	</div>           
 	  </div>
-
 	</header>
 	<%= yield %>
 </body>

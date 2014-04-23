@@ -9,6 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require inputosaurus
  *= require_tree .
  */
  @import 'bootstrap';
@@ -19,14 +20,27 @@
 
 header {
 	background-color: #3E6E96;
-}
 
-header img {
+	img {
 		width: 200px;
 	}
+}
+
+.heading {
+
+}
+
+#slides {
+	width: 20%;
+	display: inline;
+	float: left;
+}
 
 .slides_container {
 	width: 300px;
+	font-size: 22px;
+	color: white;
+	font-family: 'Trebuchet MS';
 }
 
 .col-md-4 {

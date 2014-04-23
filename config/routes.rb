@@ -1,7 +1,12 @@
 InstagramClone::Application.routes.draw do
   devise_for :users
-  resources :posts
+  root 'post#index'
+  resources :tags, only: [:show]
 
+  resources :posts do
+    resources :comments
+    resources :votes
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
